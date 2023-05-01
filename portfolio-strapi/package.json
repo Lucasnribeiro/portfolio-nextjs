@@ -1,0 +1,32 @@
+{
+  "name": "lucasnribeiro",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@strapi/plugin-graphql": "4.8.1",
+    "@strapi/plugin-i18n": "4.8.1",
+    "@strapi/plugin-users-permissions": "4.8.1",
+    "@strapi/strapi": "4.8.1",
+    "better-sqlite3": "8.0.1",
+    "pg": "^8.10.0"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "a9782168-a3d7-42da-b449-f528e8b890d1"
+  },
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
