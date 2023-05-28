@@ -22,7 +22,7 @@ import Cubes from './ThreeJS/Cubes';
             <Grid justify="center" mt={"45px"} mb={150}>
                 <Grid.Col span={6}>
                     <Text>
-                        Hello, i'm
+                        Hello, i&apos;m
                     </Text>
                     <Title size={90}>
                         Lucas
