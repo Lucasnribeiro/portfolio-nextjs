@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { MantineProvider } from '@mantine/core';
 import Nav from '@/components/Nav';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App(props) {
   const { Component, pageProps } = props;
@@ -22,6 +23,7 @@ export default function App(props) {
       >
         <Nav/>
         <Component {...pageProps} />
+        <Analytics />
       </MantineProvider>
     </>
   );
