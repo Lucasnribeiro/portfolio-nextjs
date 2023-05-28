@@ -1,6 +1,6 @@
 
 FROM node:18-alpine
-ENV NODE_ENV=production
+ENV NODE_ENV=development
 WORKDIR /opt/
 COPY ./package.json ./yarn.lock ./
 ENV PATH /opt/node_modules/.bin:$PATH

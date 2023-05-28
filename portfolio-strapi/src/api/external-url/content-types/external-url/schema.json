@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "external_urls",
+  "info": {
+    "singularName": "external-url",
+    "pluralName": "external-urls",
+    "displayName": "external_url"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "status": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::status.status"
+    }
+  }
+}
