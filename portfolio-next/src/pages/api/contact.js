@@ -1,5 +1,4 @@
 import nodemailer from 'nodemailer';
-import geoip from 'geoip-lite';
 import useragent from 'useragent';
 
 export default async function handler(req, res) {
@@ -8,8 +7,6 @@ export default async function handler(req, res) {
 
     // Get client IP address
     const clientIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
-    // Get client location from IP address
-    const location = await geoip.lookup(clientIp);
     // Get client browser details
     const agent = useragent.parse(req.headers['user-agent']);
     const browser = agent.toAgent();
@@ -17,7 +14,6 @@ export default async function handler(req, res) {
     // Create a transporter for sending emails
     const transporter = nodemailer.createTransport({
       // Configure your email provider settings here
-      // For example, if you're using Gmail:
       host: "smtp.zoho.com",
       secure: true,
       port: 465,
