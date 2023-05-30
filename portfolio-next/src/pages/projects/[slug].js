@@ -48,6 +48,9 @@ const Project = ({ project, slug, strapi}) => {
   <>
     <Head>
       <title>{project.title}</title>
+      <meta name="description" 
+        content={project.description}
+      />
     </Head>
 
     <Container fluid mt={10}>
