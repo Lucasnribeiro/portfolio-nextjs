@@ -6,9 +6,9 @@ import {
     Grid,
     Tooltip,
     CheckIcon,
-    UnstyledButton,
     ActionIcon,
     useMantineColorScheme,
+    MediaQuery,
   } from '@mantine/core';
 import { AiFillGithub, AiFillLinkedin, AiOutlineWhatsApp, AiOutlineMail  } from 'react-icons/ai';
 import Cubes from './ThreeJS/Cubes';
@@ -32,7 +32,7 @@ import ContactModal from './ContactModal';
       <div>
         <Container>
             <Grid justify="center" mt={"45px"} mb={150}>
-                <Grid.Col span={6}>
+                <Grid.Col md={4} lg={6}>
                     <Text>
                         Hello, i&apos;m
                     </Text>
@@ -89,9 +89,13 @@ import ContactModal from './ContactModal';
                       <ContactModal />
                     </Group>
                 </Grid.Col>
-                <Grid.Col span={6}>
-                    <Cubes />
-                </Grid.Col>
+                <MediaQuery smallerThan="lg" styles={{display: 'none'}}>
+                  <Grid.Col span={6}>
+
+                      <Cubes />
+
+                  </Grid.Col>
+                </MediaQuery>
 
             </Grid>
 

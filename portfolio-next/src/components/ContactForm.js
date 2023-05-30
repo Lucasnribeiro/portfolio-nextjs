@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Group, Space, TextInput, Textarea } from '@mantine/core';
+import { Button, CheckIcon, Group, Space, TextInput, Textarea } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
 import { MdAlternateEmail } from 'react-icons/md';
 
@@ -24,9 +24,9 @@ const ContactForm = () => {
 
       if (response.ok) {
         notifications.show({
-          title: 'Form Submitted',
-          message: data,
-          color: 'teal',
+          title: 'Your message was sent! 📬',
+          message: 'Thanks for reaching out! I will anwer as soon as possible.',
+          icon: <CheckIcon/>
         });
 
         setName('');

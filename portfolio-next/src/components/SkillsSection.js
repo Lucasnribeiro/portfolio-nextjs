@@ -7,7 +7,7 @@ export default function SkillsSection({skills, strapi}){
         <Container>
             <Grid gutter={30}>
                 {skills.map((skill) =>
-                    <Grid.Col key={skill.attributes.title} span={6}>
+                    <Grid.Col key={skill.attributes.title} md={12} lg={6}>
                         <SkillCard 
                             title={skill.attributes.title} 
                             skill={skill.attributes.time} 
