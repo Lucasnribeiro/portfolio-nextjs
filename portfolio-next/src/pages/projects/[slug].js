@@ -135,7 +135,7 @@ export async function getStaticPaths() {
 
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 
   const { slug } = context.params; 
 

@@ -46,7 +46,7 @@ export default function Home({projects, strapi, skills}) {
   )
 }
 
-export async function getStaticProps(){
+export async function getServerSideProps(){
 
   const { data } = await apolloClient.query({
     query: GET_ALL_PROJECTS
