@@ -118,22 +118,22 @@ const Project = ({ project, slug, strapi}) => {
   );
 };
 
-export async function getStaticPaths() {
+// export async function getStaticPaths() {
     
-  const { data } = await apolloClient.query({
-      query: GET_ALL_PROJECTS_SLUGS
-  })
+//   const { data } = await apolloClient.query({
+//       query: GET_ALL_PROJECTS_SLUGS
+//   })
 
-  const paths = data.projects.data.map((project) => ({
-    params: { slug: project.attributes.urlSlug },
-  }));
+//   const paths = data.projects.data.map((project) => ({
+//     params: { slug: project.attributes.urlSlug },
+//   }));
 
-  return {
-    paths,
-    fallback: false, 
-  };
+//   return {
+//     paths,
+//     fallback: false, 
+//   };
 
-}
+// }
 
 export async function getServerSideProps(context) {
 
