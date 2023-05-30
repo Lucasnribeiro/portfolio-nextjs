@@ -9,28 +9,47 @@ const ContactForm = () => {
   const [message, setMessage] = useState('');
 
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    const data = JSON.stringify({name, email, message})
 
-    // Add your form submission logic here
-    // For this example, we'll just display the form data in a notification
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
 
-    const formData = {
-      name: name,
-      email: email,
-      message: message
-    };
+      if (response.ok) {
+        notifications.show({
+          title: 'Form Submitted',
+          message: data,
+          color: 'teal',
+        });
 
-    notifications.show({
-      title: 'Form Submitted',
-      message: JSON.stringify(formData),
-      color: 'teal',
-    });
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else {
+        notifications.show({
+          title: 'There was an error submitting',
+          message: data,
+          color: 'teal',
+        });
+      }
+
+    } catch (error) {
+      notifications.show({
+        title: 'There was an error submitting',
+        message: data,
+        color: 'teal',
+      });
+    }
 
     // Reset form fields
-    setName('');
-    setEmail('');
-    setMessage('');
+
   };
 
   return (
