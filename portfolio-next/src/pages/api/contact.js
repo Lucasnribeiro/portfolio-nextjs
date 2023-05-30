@@ -35,7 +35,7 @@ export default async function handler(req, res) {
         Message: ${message}
 
         IP Address: ${clientIp}
-        Location: ${req.headers.get('x-vercel-ip-city')}, ${req.headers.get('x-vercel-ip-country-region')} - ${req.headers.get('x-vercel-ip-country')}
+        Location: ${req.headers('x-vercel-ip-city')}, ${req.headers('x-vercel-ip-country-region')} - ${req.headers('x-vercel-ip-country')}
         Browser: ${browser}
       `,
     };
