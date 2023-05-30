@@ -54,7 +54,7 @@ export default function Home({projects, strapi, skills}) {
         <Container>
           <Grid>
             <Grid.Col span={7}>
-              <Title order={3}>Let's Talk!</Title>
+              <Title order={3}>Let&apos;s Talk!</Title>
               <Text>You can use this form to reach me out, <br/> or if you prefer you can email me at <br/>
                 <a style={{textDecoration: 'none'}} href="mailto:lucasmnribeiro@gmail.com"> lucasmnribeiro@gmail.com</a>
               </Text>
