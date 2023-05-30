@@ -5,7 +5,7 @@ import { GET_ALL_PROJECTS, GET_ALL_PROJECTS_SLUGS, GET_SKILLS } from '@/graphql/
 import ProjectCard from '@/components/ProjectCard'
 import {  Container, Divider, Grid } from '@mantine/core'
 import { apolloClient } from '@/graphql/apolloClient'
-import ExperienceSection from '@/components/ExperienceSection'
+import SkillsSection from '@/components/SkillsSection'
 import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -36,8 +36,8 @@ export default function Home({projects, strapi, skills}) {
             )}
           </Grid>
         </Container>
-        <Divider my={80} label="Experience" labelPosition="center" />
-        <ExperienceSection skills={skills} strapi={strapi}/>
+        <Divider my={80} label="Skills" labelPosition="center" />
+        <SkillsSection skills={skills} strapi={strapi}/>
       </main>
       <footer>
         <Footer/>

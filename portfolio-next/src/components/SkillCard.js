@@ -1,8 +1,8 @@
 import React from 'react';
-import { Card, Container, Grid, Group, Spoiler, Text } from '@mantine/core';
+import { Card, Grid, Group, Spoiler, Text } from '@mantine/core';
 import Image from 'next/image';
 
-function ExperienceCard({title, experience, logo, text}) {
+function SkillCard({title, skill, logo, text}) {
   return (
     <Card shadow="xs" padding="md" radius="md" withBorder>
       <Grid>
@@ -18,7 +18,7 @@ function ExperienceCard({title, experience, logo, text}) {
         <Grid.Col span={9}>
             <Group spacing="xs">
                 <Text weight={700} size="lg">{title}</Text>
-                <Text size='sm' color="dimmed"> - {experience}</Text>
+                <Text size='sm' color="dimmed"> - {skill}</Text>
             </Group>
             <Spoiler 
                 styles={{control: {
@@ -38,4 +38,4 @@ function ExperienceCard({title, experience, logo, text}) {
   );
 }
 
-export default ExperienceCard;
+export default SkillCard;
