@@ -2,8 +2,8 @@
 import ProjectStatusCard from '@/components/ProjectStatusCard';
 import { apolloClient } from '@/graphql/apolloClient';
 import { GET_ALL_PROJECTS_SLUGS, GET_PROJECT } from '@/graphql/queries';
-import { Badge, Container, Grid, Group, Image } from '@mantine/core';
-import React, { useState } from 'react';
+import { Badge, Container, Grid, Group, Image, Breadcrumbs, Anchor } from '@mantine/core';
+import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm'
 import Head from 'next/head';
@@ -12,8 +12,12 @@ import TableOfContents from '@/components/TableOfContents';
 const Project = ({ project, slug, strapi}) => {
 
   function parseHeaders(text) {
-    const lines = text.split('\n');
+    const lines = text?.split('\n');
     const headers = [];
+
+    if(lines == undefined){
+      return headers;
+    }
   
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
@@ -40,20 +44,22 @@ const Project = ({ project, slug, strapi}) => {
     return str;
   };
 
-  return (<>
+  return (
+  <>
     <Head>
       <title>{project.title}</title>
     </Head>
 
-    <Container fluid mt={50}>
+    <Container fluid mt={10}>
+
       <Grid>   
         <Grid.Col span={9}>
           <Container>
-            <Group position="left" mt="md" mb="xs">
+            <Group position="left" mt="md" mb={2}>
               {project.tags.data.map((tag) =>
-                    <Badge key={tag.attributes.title} color={tag.attributes.color ?? 'gray'} variant="light">
-                        {tag.attributes.title}
-                    </Badge>
+                <Badge key={tag.attributes.title} color={tag.attributes.color ?? 'gray'} variant="light">
+                    {tag.attributes.title}
+                </Badge>
               )}
             </Group>
             <h1>{project.title}</h1>
@@ -108,7 +114,7 @@ const Project = ({ project, slug, strapi}) => {
         </Grid.Col>            
       </Grid>
     </Container>
-    </>
+  </>
   );
 };
 

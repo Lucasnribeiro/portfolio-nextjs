@@ -89,8 +89,30 @@ query($slug: String!) {
 }
 `;
 
+const GET_SKILLS = gql `
+query {
+  skills{
+    data{
+      attributes{
+        time
+        title
+        text
+        logo{
+          data{
+            attributes{
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
 export { 
     GET_ALL_PROJECTS,
     GET_PROJECT,
-    GET_ALL_PROJECTS_SLUGS
+    GET_ALL_PROJECTS_SLUGS,
+    GET_SKILLS
 }

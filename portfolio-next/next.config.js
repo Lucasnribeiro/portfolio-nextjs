@@ -4,8 +4,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: '54.197.9.119',
+        protocol: 'https',
+        hostname: 'strapi-portfolio.lucasnribeiro.com',
         port: '',
         pathname: '/uploads/**',
       },

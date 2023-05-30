@@ -1,15 +1,16 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import { Hero } from '@/components/Hero'
-import Technologies from '@/components/Technologies'
-import { GET_ALL_PROJECTS } from '@/graphql/queries'
+import { GET_ALL_PROJECTS, GET_ALL_PROJECTS_SLUGS, GET_SKILLS } from '@/graphql/queries'
 import ProjectCard from '@/components/ProjectCard'
-import { Center, Container, Divider, Grid, Group, Space } from '@mantine/core'
+import {  Container, Divider, Grid } from '@mantine/core'
 import { apolloClient } from '@/graphql/apolloClient'
+import ExperienceSection from '@/components/ExperienceSection'
+import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home({projects, strapi}) {
+export default function Home({projects, strapi, skills}) {
 
   return (
     <>
@@ -21,7 +22,6 @@ export default function Home({projects, strapi}) {
       </Head>
       <main>
         <Hero />
-        {/* <Technologies /> */}
         <Divider my={80} label="Projects" labelPosition="center" />
         <Container>
           <Grid>
@@ -36,8 +36,12 @@ export default function Home({projects, strapi}) {
             )}
           </Grid>
         </Container>
-        <Divider my={80} label="Tech Stack" labelPosition="center" />
+        <Divider my={80} label="Experience" labelPosition="center" />
+        <ExperienceSection skills={skills} strapi={strapi}/>
       </main>
+      <footer>
+        <Footer/>
+      </footer>
     </>
   )
 }
@@ -48,10 +52,15 @@ export async function getStaticProps(){
     query: GET_ALL_PROJECTS
   })
 
+  const { data: skillsQuery } = await apolloClient.query({
+    query: GET_SKILLS
+  })
+
   return {
     props: {
       strapi: process.env.STRAPI,
-      projects: data.projects.data
+      projects: data.projects.data,
+      skills: skillsQuery.skills.data
     }
   }
 }

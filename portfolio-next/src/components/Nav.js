@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import { createStyles, Header, Container, Group, Burger, rem } from '@mantine/core';
+import { createStyles, Header, Container, Group, Burger, rem, UnstyledButton, Grid, Col, Text, Button } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { AiFillHome } from 'react-icons/ai';
 import Link from 'next/link';
+import { useRouter } from 'next/router'
+import ColorSchemeButton from './ColorSchemeButton';
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -59,6 +61,7 @@ export default function HeaderSimple({ }) {
     const [opened, { toggle }] = useDisclosure(false);
     const [active, setActive] = useState(links[0].link);
     const { classes, cx } = useStyles();
+    const router = useRouter()
 
     const items = links.map((link) => (
         <a
@@ -75,15 +78,19 @@ export default function HeaderSimple({ }) {
     ));
 
     return (
-        <Header height={60}>
-          <Container className={classes.header}>
-              <Link href={'/'}><AiFillHome/></Link>
-              <Group spacing={5} className={classes.links}>
-                {/* {items} */}
-              </Group>
+        <Grid gutter="md" style={{ paddingTop: '1rem' }}>
+          <Col span={3} align="center">
+              {router.pathname != '/' &&
+                <Link href={'/'}><UnstyledButton> Home </UnstyledButton></Link>
+              }  
+          </Col>
+          <Col span={6} align="center">
+            {/* <Text >Lucas R</Text> */}
 
-              <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
-          </Container>
-        </Header>
+          </Col>
+          <Col span={2} align="right">
+            <ColorSchemeButton />
+          </Col>
+        </Grid>
     );
 }
