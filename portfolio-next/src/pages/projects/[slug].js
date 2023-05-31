@@ -56,7 +56,7 @@ const Project = ({ project, slug, strapi}) => {
     <Container fluid mt={10}>
 
       <Grid>   
-        <Grid.Col span={9}>
+        <Grid.Col md={12} lg={9} order={1}>
           <Container>
             <Group position="left" mt="md" mb={2}>
               {project.tags.data.map((tag) =>
@@ -109,7 +109,7 @@ const Project = ({ project, slug, strapi}) => {
           </Container>
         </Grid.Col>
 
-        <Grid.Col span={3} >
+        <Grid.Col md={12} lg={3} order={2}>
           <Container style={{position: 'sticky', top: '1rem'}}>
             <ProjectStatusCard github={project.github} urls={project.external_urls} status={project.status?.data?.attributes.title} />
             <TableOfContents contents={parseHeaders(project.content)} />

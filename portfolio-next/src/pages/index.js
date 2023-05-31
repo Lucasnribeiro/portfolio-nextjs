@@ -29,7 +29,7 @@ export default function Home({projects, strapi, skills}) {
         <Divider my={80} label="Projects" labelPosition="center" />
         <Container>
           <Grid>
-            {projects.map((project) => 
+            {projects.slice(0, 6).map((project) => 
               <Grid.Col key={project.attributes.urlSlug} md={12} lg={4}>
                 <ProjectCard 
                   urlSlug={project.attributes.urlSlug} 

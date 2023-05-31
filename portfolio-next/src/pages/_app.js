@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { MantineProvider, ColorSchemeProvider, ColorScheme } from '@mantine/core';
+import { useColorScheme } from '@mantine/hooks';
 import Nav from '@/components/Nav';
 import { Analytics } from '@vercel/analytics/react';
 import { Notifications } from '@mantine/notifications';
@@ -8,7 +9,8 @@ import { useState } from 'react';
 
 export default function App(props) {
   const { Component, pageProps } = props;
-  const [colorScheme, setColorScheme] = useState('light');
+  const preferredColorScheme = useColorScheme();
+  const [colorScheme, setColorScheme] = useState(preferredColorScheme);
   const toggleColorScheme = (value) =>
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 

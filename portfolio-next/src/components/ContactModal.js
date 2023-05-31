@@ -8,15 +8,17 @@ export default function ContactModal() {
 
   return (
     <>
-      <Modal opened={opened} onClose={close} title="Contact-me" centered
-
-        
+      <Modal 
+        opened={opened} 
+        onClose={close} 
+        title="Contact me" 
+        centered
       >
         <ContactForm />
       </Modal>
 
       <Group position="center">
-        <Button ml={30} onClick={open}>Contact-me</Button>
+        <Button ml={30} onClick={open}>Contact me</Button>
       </Group>
     </>
   );

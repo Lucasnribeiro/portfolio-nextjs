@@ -33,7 +33,7 @@ export default function ProjectCard({title, description, tags, urlSlug, headerIm
                 {description}
             </Text>
     
-            <Link href={`/projects/${urlSlug}`}>
+            <Link href={`/projects/${urlSlug}`} style={{textDecoration: 'none'}}>
                 <Button variant="light" color="blue" fullWidth mt="md" radius="md">
                     Read more
                 </Button>

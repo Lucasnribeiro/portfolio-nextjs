@@ -84,12 +84,16 @@ export default function HeaderSimple({ }) {
                 <Link href={'/'}><UnstyledButton> Home </UnstyledButton></Link>
               }  
           </Col>
-          <Col span={6} align="center">
-            {/* <Text >Lucas R</Text> */}
+          <Col span={7} align="center">
 
           </Col>
           <Col span={2} align="right">
-            <ColorSchemeButton />
+            <Group>
+              {router.pathname != '/projects' &&
+                <Link href={'/projects'} style={{textDecoration: 'none'}}><UnstyledButton> Projects</UnstyledButton></Link>
+              }
+              <ColorSchemeButton />
+            </Group>
           </Col>
         </Grid>
     );
