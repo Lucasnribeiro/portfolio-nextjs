@@ -8,6 +8,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm'
 import Head from 'next/head';
 import TableOfContents from '@/components/TableOfContents';
+import CodeBlock from '@/components/CodeBlock';
 
 const Project = ({ project, slug, strapi}) => {
 
@@ -69,7 +70,7 @@ const Project = ({ project, slug, strapi}) => {
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
-                  p: React.Fragment,
+                  pre: ({node, ...props}) => console.log(props),
                   img: ({alt, src, title, ...props}) => (
                     <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                       <Image
@@ -96,9 +97,8 @@ const Project = ({ project, slug, strapi}) => {
                   h5: ({ node, ...props }) => {
                     const id = generateSlug(props.children[0]);
                     return <h5 id={id} {...props}></h5>
-                  }
-
-                  ,
+                  },
+                  code: ({...props}) => <CodeBlock {...props}/>,
                 }}
                 transformImageUri={ uri =>
                   uri.startsWith("http") ? uri : `${strapi}${uri}` 
@@ -142,10 +142,14 @@ export async function getServerSideProps(context) {
 
   const { slug } = context.params; 
 
+  await apolloClient.resetStore()
+
   const { data } = await apolloClient.query({
       query: GET_PROJECT,
       variables: { slug }
   })
+
+  console.log(data.projects.data[0].attributes)
 
   return {
     props: {
