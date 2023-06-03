@@ -141,8 +141,6 @@ export async function getServerSideProps(context) {
 
   const { slug } = context.params; 
 
-  await apolloClient.resetStore()
-
   const { data } = await apolloClient.query({
       query: GET_PROJECT,
       variables: { slug }
