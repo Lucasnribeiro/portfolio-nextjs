@@ -70,7 +70,6 @@ const Project = ({ project, slug, strapi}) => {
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
-                  pre: ({node, ...props}) => console.log(props),
                   img: ({alt, src, title, ...props}) => (
                     <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                       <Image
@@ -148,8 +147,6 @@ export async function getServerSideProps(context) {
       query: GET_PROJECT,
       variables: { slug }
   })
-
-  console.log(data.projects.data[0].attributes)
 
   return {
     props: {

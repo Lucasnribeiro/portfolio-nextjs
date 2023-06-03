@@ -7,7 +7,7 @@ export default function CodeBlock(props) {
 
     return (
         <SyntaxHighlighter language={props.className?.replace('language-', '')} style={colorScheme == 'light'? stackoverflowLight : nightOwl}>
-        {props.children}
+            {props.children}
         </SyntaxHighlighter>
     );
 }
