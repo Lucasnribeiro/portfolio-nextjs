@@ -4,8 +4,6 @@ yarn dev
  
 ## updating strapi
 
-FUTURE ME, THINK ABOUT THE SQLITE DB, WILL THIS OVERWRITE THE DATA? 
-
 run yarn develop, make the changes then create a new docker image
 
 docker build -t strapi-portfolio:{tag} . 
