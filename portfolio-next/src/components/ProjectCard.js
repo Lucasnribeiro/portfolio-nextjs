@@ -1,5 +1,5 @@
 
-import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';
+import { Badge, Button, Card, Group, Image, Text } from '@mantine/core';
 import Link from 'next/link';
 
 
@@ -8,7 +8,7 @@ export default function ProjectCard({title, description, tags, urlSlug, headerIm
 
 
     return (
-        <Card shadow="sm" padding="lg" radius="md" withBorder>
+        <Card style={{height: "100%"}} shadow="sm" padding="lg" radius="md" withBorder>
             <Card.Section>
                 <Image
                     src={headerImage}
