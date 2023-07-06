@@ -1,8 +1,6 @@
-import React, { Suspense, useRef, useState } from 'react'
-import * as THREE from "three";
-import { Canvas, useFrame } from '@react-three/fiber'
-import  { GlitchMode} from 'postprocessing';
-import {  OrbitControls, Stage } from '@react-three/drei'
+import { Environment, OrbitControls } from '@react-three/drei';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { Suspense, useRef, useState } from 'react';
 
 
 function Box(props) {
@@ -34,14 +32,15 @@ export default function Cubes(){
     return (
         <Canvas dpr={[1, 2]} camera={{ fov: 80 }}>
             <Suspense fallback={null}>
-              <Stage preset="soft" intensity={0.0} environment="night" adjustCamera center shadows='accumulative'>
+            <Environment path='/drei/hdri/' files='dikhololo_night_1k.hdr'/>
+
                 <ambientLight intensity={0.5} />
                 <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
                 <pointLight position={[-10, -10, -10]} />
                 <Box position={[-1.9, 2, 0]} scale={2} />
                 <Box position={[1.2, -0.9, 0]} />
                 <OrbitControls />
-              </Stage>
+
               {/* <EffectComposer>
                 <Scanline blendFunction={BlendFunction.PIN_LIGHT} density={1.25} />
                 <Glitch
