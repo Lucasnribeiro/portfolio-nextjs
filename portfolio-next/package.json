@@ -38,9 +38,13 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
     "react-markdown": "^8.0.7",
+    "react-pdf": "^7.2.0",
     "react-syntax-highlighter": "^15.5.0",
     "remark-gfm": "^3.0.1",
     "three": "^0.150.1",
     "useragent": "^2.3.0"
+  },
+  "devDependencies": {
+    "raw-loader": "^4.0.2"
   }
 }

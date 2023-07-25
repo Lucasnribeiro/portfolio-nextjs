@@ -14,6 +14,14 @@ const nextConfig = {
   env: {
     ROOT: __dirname,
   },
+  webpack: (config) => {
+    config.module.rules.push({
+    test: /\.node/,
+    use: 'raw-loader',
+    });
+    
+    return config;
+  },
   
 }
 

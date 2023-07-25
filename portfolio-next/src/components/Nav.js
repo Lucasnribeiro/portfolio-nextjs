@@ -1,9 +1,8 @@
-import { useState } from 'react';
-import { createStyles, Header, Container, Group, Burger, rem, UnstyledButton, Grid, Col, Text, Button } from '@mantine/core';
+import { Col, Grid, Group, UnstyledButton, createStyles, rem } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { AiFillHome } from 'react-icons/ai';
 import Link from 'next/link';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 import ColorSchemeButton from './ColorSchemeButton';
 
 const useStyles = createStyles((theme) => ({
@@ -92,6 +91,7 @@ export default function HeaderSimple({ }) {
               {router.pathname != '/projects' &&
                 <Link href={'/projects'} style={{textDecoration: 'none'}}><UnstyledButton> Projects</UnstyledButton></Link>
               }
+                <Link href={'/cv'} style={{textDecoration: 'none'}}><UnstyledButton> CV</UnstyledButton></Link>
               <ColorSchemeButton />
             </Group>
           </Col>
